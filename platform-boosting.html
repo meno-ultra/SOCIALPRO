@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mazen.css">
+    <title>SOCIAL PRO - Platform Boosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        [lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        [lang="ar"] .container {
+            direction: rtl;
+        }
+        [lang="ar"] .text {
+            text-align: right;
+        }
+        [lang="ar"] .pricing-buttons {
+            text-align: center;
+        }
+        [lang="ar"] .social-links {
+            text-align: center;
+        }
+        [lang="ar"] .contact-info {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">العربية</button>
+    <div class="container">
+        <div class="logo-section">
+            <div>
+                <img src="image.jpg" alt="SOCIAL PRO Logo" class="main-logo">
+            </div>
+            <div>
+                <img src="Screenshot 2025-10-05 015026.png" alt="Page Banner" class="page-banner">
+            </div>
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2 data-en="Platform Boosting<br>Services" data-ar="خدمات تعزيز المنصات">Platform Boosting<br>Services</h2>
+                <p data-en="Boost your social media presence with our professional platform boosting services. Increase followers, engagement, and visibility across all major platforms." data-ar="عزز وجودك على وسائل التواصل الاجتماعي مع خدمات تعزيز المنصات المهنية. زيادة المتابعين والمشاركة والرؤية عبر جميع المنصات الرئيسية.">Boost your social media presence with our professional platform boosting services. Increase followers, engagement, and visibility across all major platforms.</p>
+                
+                <div class="pricing-buttons">
+                    <a href="youtube-boosting.html" class="price-btn youtube-btn">
+                        <i class="fab fa-youtube"></i>
+                        <span class="plan-name">YouTube</span>
+                        
+                    </a>
+                    <a href="facebook-boosting.html" class="price-btn facebook-btn">
+                        <i class="fab fa-facebook"></i>
+                        <span class="plan-name">Facebook</span>
+                        
+                    </a>
+                    <a href="tiktok-boosting.html" class="price-btn tiktok-btn">
+                        <i class="fab fa-tiktok"></i>
+                        <span class="plan-name">TikTok</span>
+                       
+                    </a>
+                    <a href="instagram-boosting.html" class="price-btn instagram-btn">
+                        <i class="fab fa-instagram"></i>
+                        <span class="plan-name">Instagram</span>
+                        
+                    </a>
+                    <a href="telegram-boosting.html" class="price-btn telegram-btn">
+                        <i class="fab fa-telegram"></i>
+                        <span class="plan-name">Telegram</span>
+                       
+                    </a>
+                    <a href="twitter-boosting.html" class="price-btn twitter-btn">
+                        <i class="fab fa-twitter"></i>
+                        <span class="plan-name">Twitter</span>
+                        
+                    </a>
+                    <a href="snapchat-boosting.html" class="price-btn snapchat-btn">
+                        <i class="fab fa-snapchat"></i>
+                        <span class="plan-name">Snapchat</span>
+                       
+                    </a>
+                    <a href="video-boosting.html" class="price-btn video-btn">
+                        <i class="fas fa-video"></i>
+                        <span class="plan-name">kwai</span>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <footer id="contact">
+            <h3 data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BFcx7pCdM/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span data-en="Facebook" data-ar="فيسبوك">Facebook</span>
+                </a>
+                <a href="https://wa.me/201107297090" target="_blank" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>WhatsApp: +20 110 729 7090</p>
+                <p data-en="Available 24/7 for Support" data-ar="متاح 24/7 للدعم">Available 24/7 for Support</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+        });
+        
+        function initializeLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'ar') {
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+        }
+        
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                currentLang = 'en';
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+            
+            // Save language preference
+            localStorage.setItem('language', currentLang);
+        }
+        
+        function updateTexts(lang) {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+</body>
+</html>

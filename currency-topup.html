@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mazen.css">
+    <title>SOCIAL PRO - Currency Top-Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        [lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        [lang="ar"] .container {
+            direction: rtl;
+        }
+        [lang="ar"] .text {
+            text-align: right;
+        }
+        [lang="ar"] .pricing-buttons {
+            text-align: center;
+        }
+        [lang="ar"] .social-links {
+            text-align: center;
+        }
+        [lang="ar"] .contact-info {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">العربية</button>
+    <div class="container">
+        <div class="logo-section">
+            <div>
+                <img src="image.jpg" alt="SOCIAL PRO Logo" class="main-logo">
+            </div>
+            <div>
+                <img src="Screenshot 2025-10-05 015026.png" alt="Page Banner" class="page-banner">
+            </div>
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2 data-en="Currency Top-Up<br>Services" data-ar="خدمات شحن العملة">Currency Top-Up<br>Services</h2>
+                <p data-en="Top up your social media accounts with our secure currency top-up services. Digital currency and payment solutions for all platforms." data-ar="اشحن حسابات وسائل التواصل الاجتماعي مع خدمات شحن العملة الآمنة. العملة الرقمية وحلول الدفع لجميع المنصات.">Top up your social media accounts with our secure currency top-up services. Digital currency and payment solutions for all platforms.</p>
+                
+                <div class="currency-table-container">
+                    <table class="currency-table">
+                        <thead>
+                            <tr>
+                                <th data-en="Service" data-ar="الخدمة">Service</th>
+                                <th data-en="Dollars ($)" data-ar="دولار ($)">Dollars ($)</th>
+                                <th data-en="Egyptian Pound (EGP)" data-ar="جنيه مصري (EGP)">Egyptian Pound (EGP)</th>
+                                <th data-en="Action" data-ar="الإجراء">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="service-with-icon">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png" alt="Binance" class="brand-icon binance-icon">
+                                        <span data-en="Binance Dollars" data-ar="دولارات بينانس">Binance Dollars</span>
+                                    </div>
+                                </td>
+                                <td>$100</td>
+                                <td>EGP6000</td>
+                                <td>
+                                    <a href="payment.html?plan=Binance Dollars Top-Up&price=EGP6000" class="currency-btn">
+                                        <span data-en="Buy Now" data-ar="اشتر الآن">Buy Now</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="service-with-icon">
+                                        <img src="https://payeer.com/favicon.ico" alt="Payeer" class="brand-icon payeer-icon">
+                                        <span data-en="Payeer Dollars" data-ar="دولارات باير">Payeer Dollars</span>
+                                    </div>
+                                </td>
+                                <td>$100</td>
+                                <td>EGP6000</td>
+                                <td>
+                                    <a href="payment.html?plan=Payeer Dollars Top-Up&price=EGP6000" class="currency-btn">
+                                        <span data-en="Buy Now" data-ar="اشتر الآن">Buy Now</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="service-with-icon">
+                                        <img src="8h3Fc3icu5meUVJSUGylr5-al1xUWVCSmqJbkpRnoJdeXJJYkpmsl5yfq5-Zm5ieWmxfaAuUsXL0S7F0Tw4syAn2NQ1yCQ4JTnTJ8sn2ytOtqHLMy0wKyE139zR0KinyME11dvd0KTd2VCu2NTQAAA1CJLw" alt="RedotPay" class="brand-icon redotpay-icon">
+                                        <span data-en="RedotPay Dollars" data-ar="دولارات ريدوت باي">RedotPay Dollars</span>
+                                    </div>
+                                </td>
+                                <td>$100</td>
+                                <td>EGP6000</td>
+                                <td>
+                                    <a href="payment.html?plan=RedotPay Dollars Top-Up&price=EGP6000" class="currency-btn">
+                                        <span data-en="Buy Now" data-ar="اشتر الآن">Buy Now</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer id="contact">
+            <h3 data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BFcx7pCdM/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span data-en="Facebook" data-ar="فيسبوك">Facebook</span>
+                </a>
+                <a href="https://wa.me/201107297090" target="_blank" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>WhatsApp: +20 110 729 7090</p>
+                <p data-en="Available 24/7 for Support" data-ar="متاح 24/7 للدعم">Available 24/7 for Support</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+        });
+        
+        function initializeLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'ar') {
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+        }
+        
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                currentLang = 'en';
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+            
+            // Save language preference
+            localStorage.setItem('language', currentLang);
+        }
+        
+        function updateTexts(lang) {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+</body>
+</html>

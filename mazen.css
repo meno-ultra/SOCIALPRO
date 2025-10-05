@@ -1,0 +1,1324 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #C878D2;
+    --primary-gradient: linear-gradient(135deg, #C878D2, #AA50AA, #8C3C96);
+    --bg-dark: #050A30;
+    --bg-light: #0A1A5A;
+    --text-light: #C878D2;
+    --text-gray: #AA50AA;
+    --accent-purple: #AA50AA;
+    --accent-pink: #8C3C96;
+    --logo-purple: #AA50AA;
+    --logo-pink: #8C3C96;
+    --indigo-dark: #050A30;
+    --indigo-medium: #0A1A5A;
+    --indigo-light: #1A2A7A;
+    --purple-soft: #C878D2;
+    --purple-medium: #AA50AA;
+    --purple-dark: #8C3C96;
+}
+
+html {
+    font-size: 16px;
+    min-height: 100%;
+}
+
+body{
+    background-color: #050A30;
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0A1A5A, #1A2A7A, #2A3A9A);
+    position: fixed;
+    z-index: -1;
+    clip-path: circle(35% at right 80%);
+    pointer-events: none;
+}
+.container{
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.logo-section {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+.main-logo {
+    max-width: 200px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(5, 10, 48, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(5, 10, 48, 0.6);
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(5, 10, 48, 0.3);
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.logo{
+    background: linear-gradient(135deg, #050A30, #0A1A5A, #1A2A7A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 20px rgba(5, 10, 48, 0.4);
+}
+.logo:hover{
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.875rem;
+    flex-wrap: wrap;
+}
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+nav ul li a:hover{
+    color: #7B1FA2;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.125rem 0;
+    gap: 2rem;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 400px);
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+.text{
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.text h2{
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+    line-height: 1.2;
+    font-weight: 700;
+}
+.text p{
+    font-size: 1.125rem;
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+}
+.features-list {
+    display: flex;
+    gap: 1.875rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: #ffffff;
+}
+.feature-item i {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+.pricing-buttons {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.price-btn {
+    padding: 1.25rem;
+    border: none;
+    border-radius: 0.75rem;
+    background: var(--indigo-medium);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 280px;
+    text-decoration: none;
+    border: 1px solid rgba(5, 10, 48, 0.3);
+}
+.price-btn:hover {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+.price-btn .plan-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+}
+.price-btn .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+.price-btn:hover .price {
+    color: var(--text-light);
+}
+.price-btn .period {
+    font-size: 0.875rem;
+    color: #ffffff;
+    margin-top: 0.3125rem;
+}
+.price-btn:hover .period {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Platform-specific button styles */
+.price-btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.youtube-btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    border-color: #FF0000;
+}
+
+.youtube-btn:hover {
+    background: linear-gradient(135deg, #CC0000, #990000);
+    transform: translateY(-2px);
+}
+
+.facebook-btn {
+    background: linear-gradient(135deg, #1877F2, #166FE5);
+    border-color: #1877F2;
+}
+
+.facebook-btn:hover {
+    background: linear-gradient(135deg, #166FE5, #0D47A1);
+    transform: translateY(-2px);
+}
+
+.tiktok-btn {
+    background: linear-gradient(135deg, #000000, #333333);
+    border-color: #000000;
+}
+
+.tiktok-btn:hover {
+    background: linear-gradient(135deg, #333333, #666666);
+    transform: translateY(-2px);
+}
+
+.instagram-btn {
+    background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    border-color: transparent;
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(135deg, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040);
+    transform: translateY(-2px);
+}
+
+.telegram-btn {
+    background: linear-gradient(135deg, #0088CC, #006699);
+    border-color: #0088CC;
+}
+
+.telegram-btn:hover {
+    background: linear-gradient(135deg, #006699, #004466);
+    transform: translateY(-2px);
+}
+
+.twitter-btn {
+    background: linear-gradient(135deg, #1DA1F2, #0D8BD9);
+    border-color: #1DA1F2;
+}
+
+.twitter-btn:hover {
+    background: linear-gradient(135deg, #0D8BD9, #0A6BBF);
+    transform: translateY(-2px);
+}
+
+.snapchat-btn {
+    background: linear-gradient(135deg, #FFFC00, #FFE600);
+    border-color: #FFFC00;
+    color: #000000;
+}
+
+.snapchat-btn:hover {
+    background: linear-gradient(135deg, #FFE600, #CCCC00);
+    transform: translateY(-2px);
+}
+
+.snapchat-btn .price,
+.snapchat-btn .period,
+.snapchat-btn .plan-name {
+    color: #000000;
+}
+
+.video-btn {
+    background: linear-gradient(135deg, #FF6B35, #E55A2B);
+    border-color: #FF6B35;
+}
+
+.video-btn:hover {
+    background: linear-gradient(135deg, #E55A2B, #CC4A1A);
+    transform: translateY(-2px);
+}
+
+/* Pricing Table Styles */
+.pricing-table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--indigo-medium);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(5, 10, 48, 0.3);
+    margin-bottom: 2rem;
+}
+
+.pricing-table th {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.pricing-table td {
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.pricing-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.pricing-table tr:last-child td {
+    border-bottom: none;
+}
+
+.service-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #7B1FA2;
+}
+
+.quantity-input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.quantity-input:focus {
+    outline: none;
+    border-color: #7B1FA2;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Guarantee Selection */
+.guarantee-selection {
+    background: var(--indigo-medium);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(5, 10, 48, 0.3);
+}
+
+.guarantee-selection h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.guarantee-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.guarantee-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.guarantee-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.guarantee-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #7B1FA2;
+}
+
+/* Selected Services */
+.selected-services {
+    background: var(--indigo-medium);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(5, 10, 48, 0.3);
+}
+
+.selected-services h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.selected-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.total-price {
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1.25rem;
+}
+
+.proceed-to-payment {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.proceed-to-payment:hover {
+    background: linear-gradient(135deg, #CC0000, #990000);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+}
+
+/* Responsive Design for Table */
+@media (max-width: 768px) {
+    .pricing-table-container {
+        padding: 0.5rem;
+    }
+    
+    .pricing-table {
+        font-size: 0.875rem;
+    }
+    
+    .pricing-table th,
+    .pricing-table td {
+        padding: 0.5rem;
+    }
+    
+    .guarantee-options {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .selected-service {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+@media (max-width:768px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+    }
+    
+    .text {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .features-list {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .pricing-buttons {
+        justify-content: center;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .text h2 {
+        font-size: 36px;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main-logo {
+        max-width: 150px;
+    }
+    
+    .page-banner {
+        max-width: 250px;
+    }
+    
+    body::after{
+        clip-path: circle(50% at bottom);
+    }
+}
+
+footer {
+    margin-top: 3.125rem;
+    padding: 3.125rem 0;
+    border-top: 1px solid rgba(5, 10, 48, 0.3);
+    text-align: center;
+}
+
+footer h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.875rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 1.875rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--indigo-medium);
+    border-radius: 0.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(5, 10, 48, 0.3);
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+.social-btn i {
+    font-size: 1.25rem;
+}
+
+.contact-info {
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.contact-info p {
+    margin: 0.3125rem 0;
+}
+
+.social-media-platforms {
+    margin: 3.125rem 0;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(5, 10, 48, 0.3);
+    border-bottom: 1px solid rgba(5, 10, 48, 0.3);
+}
+
+.platform-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.platform-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--indigo-medium);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(5, 10, 48, 0.3);
+}
+
+.platform-item:hover {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    transform: translateY(-5px) scale(1.1);
+    border-color: transparent;
+}
+
+.platform-item i {
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+/* Brand-specific colors for platform icons */
+.platform-item.facebook i {
+    color: #1877F2;
+}
+
+.platform-item.youtube i {
+    color: #FF0000;
+}
+
+.platform-item.tiktok i {
+    color: #000000;
+}
+
+.platform-item.instagram i {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.platform-item.telegram i {
+    color: #0088CC;
+}
+
+.platform-item.twitter i {
+    color: #1DA1F2;
+}
+
+.platform-item.snapchat i {
+    color: #FFFC00;
+}
+
+.platform-item.video i {
+    color: #FF6B35;
+}
+
+/* Page banner under logo */
+.page-banner {
+    max-width: 300px;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(5, 10, 48, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-banner:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(5, 10, 48, 0.4);
+}
+
+/* === removing default button style ===*/
+.button {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+  
+  /* button styling */
+  .button {
+    --border-right: 6px;
+    --text-stroke-color: rgba(255,255,255,0.6);
+    --animation-color: #37FF8B;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  /* this is the text, when you hover on button */
+  .hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+  /* hover */
+  .button:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+  }
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+    .content {
+        padding: 2rem 0;
+    }
+    
+    .text h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 992px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .features-list {
+        justify-content: center;
+    }
+    
+    .pricing-buttons {
+        justify-content: center;
+    }
+    
+    .text {
+        padding-right: 0;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    nav ul {
+        justify-content: center;
+    }
+    
+    .price-btn {
+        width: 100%;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+        padding: 0.5rem;
+    }
+    
+    .text h2 {
+        font-size: 2rem;
+    }
+    
+    .feature-item {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.625rem;
+    }
+    
+    .social-btn {
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .contact-info p {
+        font-size: 0.875rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 375px) {
+    html {
+        font-size: 12px;
+    }
+    
+    .text h2 {
+        font-size: 1.75rem;
+    }
+}
+
+.social-btn.whatsapp {
+    background: #128C7E;
+    border-color: transparent;
+}
+
+.social-btn.whatsapp:hover {
+    background: #075E54;
+    transform: translateY(-2px);
+}
+
+.social-btn.facebook {
+    background: #1877F2;
+    border-color: transparent;
+}
+
+.social-btn.facebook:hover {
+    background: #166FE5;
+    transform: translateY(-2px);
+}
+
+.social-btn.messenger {
+    background: #0099FF;
+    border-color: transparent;
+}
+
+.social-btn.messenger:hover {
+    background: #006AFF;
+    transform: translateY(-2px);
+}
+
+.social-btn.discord {
+    background: #5865F2;
+    border-color: transparent;
+}
+
+.social-btn.discord:hover {
+    background: #4752C4;
+    transform: translateY(-2px);
+}
+
+/* Price option styling */
+.price-option {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.price-option:hover {
+    background-color: rgba(139, 92, 246, 0.1);
+    transform: scale(1.05);
+}
+
+.price-option.selected {
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.price-option.unavailable {
+    cursor: not-allowed;
+    opacity: 0.5;
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+.price-option.unavailable:hover {
+    background-color: #f5f5f5;
+    transform: none;
+}
+
+/* Selection instructions styling */
+.selection-instructions {
+    margin: 20px 0;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.selection-instructions h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.selection-instructions p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* Reset button styling */
+.reset-button {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.reset-button:hover {
+    background: linear-gradient(135deg, #ee5a52, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+}
+
+/* Verification Features Styling */
+.verification-features {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.verification-features h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.verification-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.verification-features li {
+    color: white;
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.verification-features li:last-child {
+    border-bottom: none;
+}
+
+.verification-features li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 1rem;
+    border-radius: 8px;
+}
+
+/* Platform Icons in Pricing Buttons */
+.price-btn i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.price-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Responsive Design for Verification Features */
+@media (max-width: 768px) {
+    .verification-features {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+    }
+    
+    .verification-features h3 {
+        font-size: 1.3rem;
+    }
+    
+    .verification-features li {
+        font-size: 1rem;
+        padding: 0.6rem 0;
+    }
+    
+    .price-btn i {
+        font-size: 1.5rem;
+    }
+}
+
+/* Currency Table Styling */
+.currency-table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.currency-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--indigo-medium);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(5, 10, 48, 0.3);
+    margin-bottom: 2rem;
+}
+
+.currency-table th {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+}
+
+.currency-table td {
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.currency-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.currency-table tr:last-child td {
+    border-bottom: none;
+}
+
+.currency-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+}
+
+.currency-btn:hover {
+    background: linear-gradient(135deg, #6A1B9A, #7B1FA2, #9C27B0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 31, 162, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.currency-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for Currency Table */
+@media (max-width: 768px) {
+    .currency-table-container {
+        padding: 0.5rem;
+    }
+    
+    .currency-table {
+        font-size: 0.875rem;
+    }
+    
+    .currency-table th,
+    .currency-table td {
+        padding: 0.5rem;
+    }
+    
+    .currency-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .currency-table th,
+    .currency-table td {
+        padding: 0.4rem 0.3rem;
+        font-size: 0.8rem;
+    }
+    
+    .currency-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Subscriptions Table Styling */
+.subscriptions-table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.subscriptions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--indigo-medium);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(5, 10, 48, 0.3);
+    margin-bottom: 2rem;
+}
+
+.subscriptions-table th {
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+}
+
+.subscriptions-table td {
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.subscriptions-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.subscriptions-table tr:last-child td {
+    border-bottom: none;
+}
+
+.service-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
+
+.service-with-icon i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+}
+
+.brand-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.chatgpt-icon {
+    color: #10A37F;
+}
+
+.canva-icon {
+    color: #00C4CC;
+}
+
+.capcut-icon {
+    color: #FF6B35;
+}
+
+.binance-icon {
+    color: #F3BA2F;
+}
+
+.payeer-icon {
+    color: #00A651;
+}
+
+.redotpay-icon {
+    color: #FF6B00;
+}
+
+.subscription-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #7B1FA2, #8E24AA, #AB47BC);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+}
+
+.subscription-btn:hover {
+    background: linear-gradient(135deg, #6A1B9A, #7B1FA2, #9C27B0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(123, 31, 162, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.subscription-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for Subscriptions Table */
+@media (max-width: 768px) {
+    .subscriptions-table-container {
+        padding: 0.5rem;
+    }
+    
+    .subscriptions-table {
+        font-size: 0.875rem;
+    }
+    
+    .subscriptions-table th,
+    .subscriptions-table td {
+        padding: 0.5rem;
+    }
+    
+    .service-with-icon {
+        flex-direction: column;
+        gap: 0.3rem;
+        text-align: center;
+    }
+    
+    .subscription-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subscriptions-table th,
+    .subscriptions-table td {
+        padding: 0.4rem 0.3rem;
+        font-size: 0.8rem;
+    }
+    
+    .subscription-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

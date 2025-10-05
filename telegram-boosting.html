@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mazen.css">
+    <title>SOCIAL PRO - Telegram Boosting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        [lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        [lang="ar"] .container {
+            direction: rtl;
+        }
+        [lang="ar"] .text {
+            text-align: right;
+        }
+        [lang="ar"] .pricing-table-container {
+            text-align: center;
+        }
+        [lang="ar"] .social-links {
+            text-align: center;
+        }
+        [lang="ar"] .contact-info {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">العربية</button>
+    <div class="container">
+        <div class="logo-section">
+            <div>
+                <img src="image.jpg" alt="SOCIAL PRO Logo" class="main-logo">
+            </div>
+            <div>
+                <img src="Screenshot 2025-10-05 015026.png" alt="Page Banner" class="page-banner">
+            </div>
+        </div>
+        <div class="content">
+            <div class="text">
+                <h2 data-en="Telegram<br>Boosting Services" data-ar="خدمات تعزيز تيليجرام">Telegram<br>Boosting Services</h2>
+                <p data-en="Boost your Telegram channel with our professional services. Increase subscribers, views, and engagement to grow your Telegram presence." data-ar="عزز قناتك على تيليجرام مع خدماتنا المهنية. زيادة المشتركين والمشاهدات والمشاركة لتنمية وجودك على تيليجرام.">Boost your Telegram channel with our professional services. Increase subscribers, views, and engagement to grow your Telegram presence.</p>
+                
+                <div class="pricing-table-container">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th data-en="Service" data-ar="الخدمة">Service</th>
+                                <th data-en="Quantity" data-ar="الكمية">Quantity</th>
+                                <th data-en="Price (No Guarantee)" data-ar="السعر (بدون ضمان)">Price (No Guarantee)</th>
+                                <th data-en="Price (With Guarantee)" data-ar="السعر (مع ضمان)">Price (With Guarantee)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-en="Group Members" data-ar="أعضاء المجموعة">Group Members</td>
+                                <td><input type="number" class="quantity-input" value="1000" min="100" step="100" data-base-price-no-guarantee="0" data-base-price-with-guarantee="100"></td>
+                                <td class="price-option unavailable" data-service="Group Members" data-guarantee="no-guarantee" data-base-price="0">_</td>
+                                <td class="price-option" data-service="Group Members" data-guarantee="with-guarantee" data-base-price="100">EGP100</td>
+                            </tr>
+                            <tr>
+                                <td data-en="Telegram Views" data-ar="مشاهدات تيليجرام">Telegram Views</td>
+                                <td><input type="number" class="quantity-input" value="1000" min="100" step="100" data-base-price-no-guarantee="0" data-base-price-with-guarantee="120"></td>
+                                <td class="price-option unavailable" data-service="Telegram Views" data-guarantee="no-guarantee" data-base-price="0">_</td>
+                                <td class="price-option" data-service="Telegram Views" data-guarantee="with-guarantee" data-base-price="120">EGP120</td>
+                            </tr>
+                            <tr>
+                                <td data-en="Story Views" data-ar="مشاهدات القصص">Story Views</td>
+                                <td><input type="number" class="quantity-input" value="1000" min="100" step="100" data-base-price-no-guarantee="0" data-base-price-with-guarantee="25"></td>
+                                <td class="price-option unavailable" data-service="Story Views" data-guarantee="no-guarantee" data-base-price="0">_</td>
+                                <td class="price-option" data-service="Story Views" data-guarantee="with-guarantee" data-base-price="25">EGP25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="selection-instructions">
+                        <h3 data-en="Click on any price to select that service option" data-ar="انقر على أي سعر لاختيار خيار الخدمة">Click on any price to select that service option</h3>
+                        <p data-en="Choose between \"No Guarantee\" (lower price) or \"With Guarantee\" (higher price) for each service individually." data-ar="اختر بين \"بدون ضمان\" (سعر أقل) أو \"مع ضمان\" (سعر أعلى) لكل خدمة على حدة.">Choose between "No Guarantee" (lower price) or "With Guarantee" (higher price) for each service individually.</p>
+                        <button class="reset-button" onclick="resetAllSelections()" data-en="Reset All Selections" data-ar="إعادة تعيين جميع الاختيارات">Reset All Selections</button>
+                    </div>
+                    
+                    <div class="selected-services">
+                        <h3 data-en="Selected Services:" data-ar="الخدمات المختارة:">Selected Services:</h3>
+                        <div id="selected-list"></div>
+                        <div class="total-price">
+                            <strong><span data-en="Total:" data-ar="المجموع:">Total:</span> EGP<span id="total-amount">0</span></strong>
+                        </div>
+                        <button class="proceed-to-payment" onclick="proceedToPayment()" data-en="Proceed to Payment" data-ar="المتابعة للدفع">Proceed to Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="contact">
+            <h3 data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BFcx7pCdM/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span data-en="Facebook" data-ar="فيسبوك">Facebook</span>
+                </a>
+                <a href="https://wa.me/201107297090" target="_blank" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>WhatsApp: +20 110 729 7090</p>
+                <p data-en="Available 24/7 for Support" data-ar="متاح 24/7 للدعم">Available 24/7 for Support</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+        });
+        
+        function initializeLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'ar') {
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+        }
+        
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                currentLang = 'en';
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+            
+            // Save language preference
+            localStorage.setItem('language', currentLang);
+        }
+        
+        function updateTexts(lang) {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+    <script>
+        let selectedServices = [];
+
+        // Handle page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            const priceOptions = document.querySelectorAll('.price-option');
+
+            // Handle quantity input changes
+            quantityInputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    updatePricesForRow(this);
+                    updateSelectedServices();
+                });
+            });
+
+            // Handle price option clicks
+            priceOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    if (!this.classList.contains('unavailable')) {
+                        selectPriceOption(this);
+                    }
+                });
+            });
+
+            // Initialize prices on page load
+            quantityInputs.forEach(input => {
+                updatePricesForRow(input);
+            });
+        });
+
+        function updatePricesForRow(quantityInput) {
+            const row = quantityInput.closest('tr');
+            const quantity = parseFloat(quantityInput.value) || 0;
+            const basePriceNoGuarantee = parseFloat(quantityInput.dataset.basePriceNoGuarantee);
+            const basePriceWithGuarantee = parseFloat(quantityInput.dataset.basePriceWithGuarantee);
+            
+            // Calculate prices based on quantity (price per 1000)
+            const calculatedPriceNoGuarantee = (quantity / 1000) * basePriceNoGuarantee;
+            const calculatedPriceWithGuarantee = (quantity / 1000) * basePriceWithGuarantee;
+            
+            // Update the price cells
+            const priceNoGuaranteeCell = row.querySelector('.price-option[data-guarantee="no-guarantee"]');
+            const priceWithGuaranteeCell = row.querySelector('.price-option[data-guarantee="with-guarantee"]');
+            
+            if (basePriceNoGuarantee === 0) {
+                priceNoGuaranteeCell.textContent = '_';
+                priceNoGuaranteeCell.classList.add('unavailable');
+            } else {
+                priceNoGuaranteeCell.textContent = 'EGP' + Math.round(calculatedPriceNoGuarantee * 100) / 100;
+                priceNoGuaranteeCell.classList.remove('unavailable');
+            }
+            
+            if (basePriceWithGuarantee === 0) {
+                priceWithGuaranteeCell.textContent = '_';
+                priceWithGuaranteeCell.classList.add('unavailable');
+            } else {
+                priceWithGuaranteeCell.textContent = 'EGP' + Math.round(calculatedPriceWithGuarantee * 100) / 100;
+                priceWithGuaranteeCell.classList.remove('unavailable');
+            }
+
+            // Update selected services if this service is already selected
+            updateSelectedServices();
+        }
+
+        function selectPriceOption(clickedOption) {
+            const row = clickedOption.closest('tr');
+            const service = clickedOption.dataset.service;
+            const guarantee = clickedOption.dataset.guarantee;
+            const basePrice = parseFloat(clickedOption.dataset.basePrice);
+            const quantityInput = row.querySelector('.quantity-input');
+            const quantity = parseFloat(quantityInput.value) || 0;
+            
+            // Check if this option is already selected
+            if (clickedOption.classList.contains('selected')) {
+                // Deselect this option
+                clickedOption.classList.remove('selected');
+                // Remove from selected services
+                selectedServices = selectedServices.filter(s => s.service !== service);
+            } else {
+                // Remove selection from other price options in the same row
+                const allPriceOptions = row.querySelectorAll('.price-option');
+                allPriceOptions.forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Add selection to clicked option
+                clickedOption.classList.add('selected');
+                
+                // Calculate price
+                const price = (quantity / 1000) * basePrice;
+                
+                // Add or update service in selected services
+                const existingServiceIndex = selectedServices.findIndex(s => s.service === service);
+                const serviceData = {
+                    service: service,
+                    quantity: quantity,
+                    price: Math.round(price * 100) / 100,
+                    guarantee: guarantee
+                };
+                
+                if (existingServiceIndex >= 0) {
+                    selectedServices[existingServiceIndex] = serviceData;
+                } else {
+                    selectedServices.push(serviceData);
+                }
+            }
+
+            updateSelectedList();
+            updateTotal();
+        }
+
+        function updateSelectedServices() {
+            // Update prices for already selected services when quantity changes
+            selectedServices.forEach(service => {
+                const row = document.querySelector(`tr:has(.price-option[data-service="${service.service}"])`);
+                if (row) {
+                    const quantityInput = row.querySelector('.quantity-input');
+                    const quantity = parseFloat(quantityInput.value) || 0;
+                    const basePrice = service.guarantee === 'no-guarantee' ? 
+                        parseFloat(quantityInput.dataset.basePriceNoGuarantee) : 
+                        parseFloat(quantityInput.dataset.basePriceWithGuarantee);
+                    
+                    service.quantity = quantity;
+                    service.price = Math.round(((quantity / 1000) * basePrice) * 100) / 100;
+                }
+            });
+
+            updateSelectedList();
+            updateTotal();
+        }
+
+        function updateSelectedList() {
+            const selectedList = document.getElementById('selected-list');
+            selectedList.innerHTML = '';
+
+            if (selectedServices.length === 0) {
+                selectedList.innerHTML = '<p>No services selected</p>';
+                return;
+            }
+
+            selectedServices.forEach(service => {
+                const div = document.createElement('div');
+                div.className = 'selected-service';
+                div.innerHTML = `
+                    <span>${service.service} (${service.quantity})</span>
+                    <span>EGP${service.price} (${service.guarantee === 'with-guarantee' ? 'With Guarantee' : 'No Guarantee'})</span>
+                `;
+                selectedList.appendChild(div);
+            });
+        }
+
+        function updateTotal() {
+            const total = selectedServices.reduce((sum, service) => sum + service.price, 0);
+            document.getElementById('total-amount').textContent = total;
+        }
+
+        function resetAllSelections() {
+            // Clear all selections
+            selectedServices = [];
+            
+            // Remove selected class from all price options
+            const allPriceOptions = document.querySelectorAll('.price-option');
+            allPriceOptions.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Reset quantities to default
+            const quantityInputs = document.querySelectorAll('.quantity-input');
+            quantityInputs.forEach(input => {
+                input.value = 1000;
+                updatePricesForRow(input);
+            });
+            
+            updateSelectedList();
+            updateTotal();
+        }
+
+        function proceedToPayment() {
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service');
+                return;
+            }
+
+            const servicesList = selectedServices.map(service => 
+                `${service.service} (${service.quantity}) - ${service.guarantee === 'with-guarantee' ? 'With Guarantee' : 'No Guarantee'}`
+            ).join(', ');
+
+            const total = selectedServices.reduce((sum, service) => sum + service.price, 0);
+            
+            const paymentUrl = `payment.html?plan=Telegram Services&price=EGP${total}&services=${encodeURIComponent(servicesList)}`;
+            window.location.href = paymentUrl;
+        }
+    </script>
+</body>
+</html>

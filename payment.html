@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mazen.css">
+    <link rel="stylesheet" href="payment.css">
+    <title>SOCIAL PRO - Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .language-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        [lang="ar"] {
+            direction: rtl;
+            text-align: right;
+        }
+        [lang="ar"] .container {
+            direction: rtl;
+        }
+        [lang="ar"] .payment-content {
+            text-align: right;
+        }
+        [lang="ar"] .order-summary {
+            text-align: right;
+        }
+        [lang="ar"] .payment-methods {
+            text-align: right;
+        }
+        [lang="ar"] .order-details {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <button class="language-toggle" onclick="toggleLanguage()">العربية</button>
+    <div class="container">
+        <div class="logo-section">
+            <div>
+                <img src="image.jpg" alt="SOCIAL PRO Logo" class="main-logo">
+            </div>
+            <div>
+                <img src="Screenshot 2025-10-05 015026.png" alt="Page Banner" class="page-banner">
+            </div>
+        </div>
+        
+
+        <div class="payment-content">
+            <h2 data-en="Complete Your Purchase" data-ar="أكمل عملية الشراء">Complete Your Purchase</h2>
+            <div class="order-summary">
+                <h3 data-en="Order Summary" data-ar="ملخص الطلب">Order Summary</h3>
+                <div class="selected-plan">
+                    <span id="plan-name" data-en="Selected Plan" data-ar="الخطة المختارة">Selected Plan</span>
+                    <span id="plan-price">EGP0.00</span>
+                </div>
+            </div>
+
+            <div class="payment-methods">
+                <h3 data-en="Select Payment Method" data-ar="اختر طريقة الدفع">Select Payment Method</h3>
+                <div class="payment-grid">
+                    <button class="payment-option etisalat">
+                        <i class="fas fa-mobile"></i>
+                        <span>Etisalat Cash</span>
+                    </button>
+                    <button class="payment-option payeer">
+                        <i class="fas fa-wallet"></i>
+                        <span>Payeer</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="payment-details" id="payment-details">
+                <!-- This will be populated by JavaScript when a payment method is selected -->
+            </div>
+
+            <div class="order-details" id="order-details" style="display: none;">
+                <h3 data-en="Complete Your Order" data-ar="أكمل طلبك">Complete Your Order</h3>
+                <div class="form-group">
+                    <label for="screenshot-upload">
+                        <i class="fas fa-camera"></i>
+                        <span data-en="Upload Payment Screenshot" data-ar="رفع لقطة شاشة الدفع">Upload Payment Screenshot</span>
+                    </label>
+                    <input type="file" id="screenshot-upload" accept="image/*" capture="camera">
+                    <div class="file-preview" id="file-preview"></div>
+                    <small class="screenshot-note">
+                        <i class="fas fa-info-circle"></i>
+                        <span data-en="This screenshot will be sent with your order via WhatsApp" data-ar="ستتم إرسال هذه اللقطة مع طلبك عبر واتساب">This screenshot will be sent with your order via WhatsApp</span>
+                    </small>
+                </div>
+                
+                <!-- Content Link for Boosting Plans -->
+                <div class="form-group" id="content-link-group">
+                    <label for="content-link">
+                        <i class="fas fa-link"></i>
+                        <span data-en="Content Link (URL of the post/video you want to boost)" data-ar="رابط المحتوى (رابط المنشور/الفيديو الذي تريد تعزيزه)">Content Link (URL of the post/video you want to boost)</span>
+                    </label>
+                    <input type="url" id="content-link" placeholder="https://www.tiktok.com/@username/video/..." required>
+                </div>
+                
+                <!-- Account Details for Verification Plans -->
+                <div class="form-group" id="account-details-group" style="display: none;">
+                    <label for="account-email">
+                        <i class="fas fa-envelope"></i>
+                        <span data-en="Account Email" data-ar="البريد الإلكتروني للحساب">Account Email</span>
+                    </label>
+                    <input type="email" id="account-email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group" id="account-password-group" style="display: none;">
+                    <label for="account-password">
+                        <i class="fas fa-lock"></i>
+                        <span data-en="Account Password" data-ar="كلمة مرور الحساب">Account Password</span>
+                    </label>
+                    <input type="password" id="account-password" placeholder="Enter your account password" required>
+                </div>
+                
+                <div class="form-group" id="phone-number-group" style="display: none;">
+                    <label for="phone-number">
+                        <i class="fas fa-phone"></i>
+                        <span data-en="Phone Number" data-ar="رقم الهاتف">Phone Number</span>
+                    </label>
+                    <input type="tel" id="phone-number" placeholder="+201234567890" required>
+                </div>
+                
+                <!-- Account ID for Currency Top-Up Plans -->
+                <div class="form-group" id="account-id-group" style="display: none;">
+                    <label for="account-id">
+                        <i class="fas fa-user"></i>
+                        <span data-en="Account ID" data-ar="معرف الحساب">Account ID</span>
+                    </label>
+                    <input type="text" id="account-id" placeholder="Enter your account ID" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="order-notes">
+                        <i class="fas fa-sticky-note"></i>
+                        <span data-en="Additional Notes (Optional)" data-ar="ملاحظات إضافية (اختياري)">Additional Notes (Optional)</span>
+                    </label>
+                    <textarea id="order-notes" placeholder="Any special instructions or requirements..."></textarea>
+                </div>
+                
+                <div class="whatsapp-instructions">
+                    <h4><i class="fab fa-whatsapp"></i> <span data-en="How to Send Your Order" data-ar="كيفية إرسال طلبك">How to Send Your Order</span></h4>
+                    <ol>
+                        <li data-en="Click \"Send Order via WhatsApp\" below" data-ar="انقر على \"إرسال الطلب عبر واتساب\" أدناه">Click "Send Order via WhatsApp" below</li>
+                        <li data-en="WhatsApp will open with your order message pre-filled" data-ar="سيفتح واتساب مع رسالة طلبك مملوءة مسبقاً">WhatsApp will open with your order message pre-filled</li>
+                        <li data-en="Click the attachment button (📎) in WhatsApp" data-ar="انقر على زر المرفق (📎) في واتساب">Click the attachment button (📎) in WhatsApp</li>
+                        <li data-en="Select your payment screenshot" data-ar="اختر لقطة شاشة الدفع الخاصة بك">Select your payment screenshot</li>
+                        <li data-en="Send the message with the screenshot attached" data-ar="أرسل الرسالة مع المرفق">Send the message with the screenshot attached</li>
+                    </ol>
+                </div>
+                
+                <button class="submit-order-btn" onclick="submitOrder()">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="Send Order via WhatsApp" data-ar="إرسال الطلب عبر واتساب">Send Order via WhatsApp</span>
+                </button>
+            </div>
+        </div>
+
+        <footer id="contact">
+            <h3 data-en="Connect With Us" data-ar="تواصل معنا">Connect With Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1BFcx7pCdM/?mibextid=wwXIfr" target="_blank" class="social-btn facebook">
+                    <i class="fab fa-facebook"></i>
+                    <span data-en="Facebook" data-ar="فيسبوك">Facebook</span>
+                </a>
+                <a href="https://wa.me/201107297090" target="_blank" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                </a>
+            </div>
+            <div class="contact-info">
+                <p>WhatsApp: +20 110 729 7090</p>
+                <p data-en="Available 24/7 for Support" data-ar="متاح 24/7 للدعم">Available 24/7 for Support</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        let currentLang = localStorage.getItem('language') || 'en';
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeLanguage();
+        });
+        
+        function initializeLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'ar') {
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+        }
+        
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const button = document.querySelector('.language-toggle');
+            
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                html.lang = 'ar';
+                html.dir = 'rtl';
+                button.textContent = 'English';
+                updateTexts('ar');
+            } else {
+                currentLang = 'en';
+                html.lang = 'en';
+                html.dir = 'ltr';
+                button.textContent = 'العربية';
+                updateTexts('en');
+            }
+            
+            // Save language preference
+            localStorage.setItem('language', currentLang);
+        }
+        
+        function updateTexts(lang) {
+            const elements = document.querySelectorAll('[data-en][data-ar]');
+            elements.forEach(element => {
+                element.innerHTML = element.getAttribute(`data-${lang}`);
+            });
+        }
+    </script>
+    <script src="payment.js"></script>
+</body>
+</html> 
