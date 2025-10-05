@@ -209,11 +209,8 @@ function submitOrder() {
         return;
     }
     
-    // Check current language
-    const currentLang = localStorage.getItem('language') || 'en';
-    
-    // Prepare order message based on language
-    const orderMessage = currentLang === 'ar' ? `
+    // Prepare order message (always Arabic)
+    const orderMessage = `
 🎯 *طلب جديد - SOCIAL PRO*
 
 📋 *تفاصيل الطلب:*
@@ -242,35 +239,6 @@ ${orderNotes || 'لا توجد'}
 
 ---
 يرجى معالجة هذا الطلب. شكراً لك!
-    `.trim() : `
-🎯 *NEW ORDER - SOCIAL PRO*
-
-📋 *Order Details:*
-• Plan: ${window.orderDetails.plan}
-• Price: ${window.orderDetails.price}
-• Services: ${window.orderDetails.services}
-
-${isVerificationPlan ? 
-`📧 *Account Email:* ${document.getElementById('account-email').value}
-🔒 *Account Password:* ${document.getElementById('account-password').value}
-📱 *Phone Number:* ${document.getElementById('phone-number').value}` :
-isCurrencyTopUpPlan ?
-`🆔 *Account ID:* ${document.getElementById('account-id').value}` :
-isChatGPTPersonalPlan ?
-`📧 *Email Address:* ${document.getElementById('account-email').value}` :
-isReadyAccountPlan ?
-`✅ *Ready Account:* No additional information required` :
-`🔗 *Content Link:* ${document.getElementById('content-link').value}`}
-
-📝 *Additional Notes:*
-${orderNotes || 'None'}
-
-⏰ *Order Time:* ${new Date().toLocaleString()}
-
-📸 *IMPORTANT: Please attach the payment screenshot to this conversation*
-
----
-Please process this order. Thank you!
     `.trim();
     
     // WhatsApp phone number
@@ -282,10 +250,8 @@ Please process this order. Thank you!
     // Open WhatsApp
     window.open(whatsappUrl, '_blank');
     
-    // Show success message with instructions based on language
-    const alertMessage = currentLang === 'ar' ? 
-        'واتساب يفتح مع رسالة طلبك.\n\nخطوات مهمة:\n1. ستكون رسالة الطلب مملوءة مسبقاً\n2. انقر على زر المرفق (📎) في واتساب\n3. اختر "الكاميرا" أو "المعرض"\n4. اختر لقطة شاشة الدفع\n5. أرسل الرسالة مع لقطة الشاشة\n\nسيتم معالجة طلبك بمجرد إرسال الرسالة ولقطة الشاشة!' :
-        'WhatsApp is opening with your order message.\n\nIMPORTANT STEPS:\n1. The order message will be pre-filled\n2. Click the attachment button (📎) in WhatsApp\n3. Select "Camera" or "Gallery"\n4. Choose your payment screenshot\n5. Send the message with the screenshot\n\nYour order will be processed once you send both the message and screenshot!';
+    // Show success message with instructions (always Arabic)
+    const alertMessage = 'واتساب يفتح مع رسالة طلبك.\n\nخطوات مهمة:\n1. ستكون رسالة الطلب مملوءة مسبقاً\n2. انقر على زر المرفق (📎) في واتساب\n3. اختر "المعرض" أو "الملفات"\n4. اختر لقطة شاشة الدفع\n5. أرسل الرسالة مع لقطة الشاشة\n\nسيتم معالجة طلبك بمجرد إرسال الرسالة ولقطة الشاشة!';
     
     alert(alertMessage);
 }
