@@ -34,7 +34,7 @@
             direction: rtl;
         }
         [lang="ar"] .text {
-            text-align: right;
+            text-align: center;
         }
         [lang="ar"] .pricing-buttons {
             text-align: center;
@@ -44,6 +44,22 @@
         }
         [lang="ar"] .contact-info {
             text-align: center;
+        }
+        /* Make home page platform icons static (no hover/animation/color change) */
+        .platform-icons .platform-item,
+        .platform-icons .platform-item i {
+            pointer-events: none;
+            cursor: default;
+            animation: none !important;
+            transition: none !important;
+            filter: none !important;
+        }
+        .platform-icons .platform-item:hover,
+        .platform-icons .platform-item:hover i {
+            transform: none !important;
+            color: inherit !important;
+            background: inherit !important;
+            box-shadow: none !important;
         }
     </style>
 </head>
@@ -70,7 +86,7 @@
                       
                     </a>
                     <a href="platform-verification.html" class="price-btn weekly">
-                        <span class="plan-name" data-en="Platform Verification" data-ar="التحقق من المنصات"> Platform Verification</span>
+                        <span class="plan-name" data-en="Platform Verification" data-ar="توثيق المنصات"> Platform Verification</span>
                        
                     </a>
                     <a href="subscriptions.html" class="price-btn monthly">
